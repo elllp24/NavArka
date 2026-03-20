@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5 mb-30">
+
+    <div class="row">
+
+        <!-- CONTACT INFO -->
+        <div class="col-md-5">
+            <div class="card p-4 shadow">
+                <h4>Contact Information</h4>
+                <p><strong>Company:</strong> NavArka Realty and Shipyards LLP</p>
+                <p><strong>Email:</strong> info@navarka.com</p>
+                <p><strong>Phone:</strong> +91-9437788017</p>
+                <p><strong>Address:</strong> Bhubaneswar, Odisha</p>
+            </div>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div class="col-md-7">
+            <div class="card p-4 shadow">
+
+                <h4 class="mb-3">Send Message</h4>
+
+                {% if success %}
+                <div class="alert alert-success">
+                    Message sent successfully!
+                </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+
+                    <input type="email" name="email" class="form-control mb-3" placeholder="Email Address" required>
+
+                    <input type="text" name="phone" class="form-control mb-3" placeholder="Phone Number" required>
+
+                    <textarea name="message" class="form-control mb-3" rows="5" placeholder="Your Message"></textarea>
+
+                    <button class="btn btn-dark w-100">Send Message</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

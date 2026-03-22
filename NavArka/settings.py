@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,6 +35,7 @@ ADMIN_INDEX_TITLE = "Welcome to NavArka Dashboard"
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,7 +54,21 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+JAZZMIN_SETTINGS = {
+    "site_title": "NavArka Admin",
+    "site_header": "NavArka",
+    "site_brand": "NavArka Realty",
+    "welcome_sign": "Welcome to NavArka Dashboard",
 
+   # "site_logo": "images/logo.png",   # we will add this
+    #"login_logo": "images/logo.png",
+
+    "copyright": "NavArka Realty",
+
+    "topmenu_links": [
+        {"name": "Home", "url": "/", "new_window": True},
+    ],
+}
 ROOT_URLCONF = 'NavArka.urls'
 
 TEMPLATES = [

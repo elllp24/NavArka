@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["navarka.in", "www.navarka.in", "127.0.0.1"]
 
+ADMIN_SITE_HEADER = "NavArka Admin"
+ADMIN_SITE_TITLE = "NavArka Panel"
+ADMIN_INDEX_TITLE = "Welcome to NavArka Dashboard"
 
 # Application definition
 

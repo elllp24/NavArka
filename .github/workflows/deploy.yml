@@ -15,11 +15,12 @@ jobs:
         with:
           host: 88.222.242.243
           username: root
+          port: 22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/navarka
             git pull origin main
-            source venv/bin/activate
+            source venv/bin/activate || true
             python manage.py migrate
             python manage.py collectstatic --noinput
             systemctl restart navarka

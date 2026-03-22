@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-n%8u$mq=ns!+!=npf-$f9l1n$jpoml=c+_*0dlxl2gxg)m54r_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["navarka.in", "www.navarka.in", "127.0.0.1"]
 
 
 # Application definition

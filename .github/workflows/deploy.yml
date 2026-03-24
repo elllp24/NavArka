@@ -10,18 +10,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to VPS via SSH
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.10
         with:
-          host: 88.222.242.243
+          host: ${{ secrets.SERVER_IP }}
           username: root
-          port: 22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/navarka
+
+            echo "🔄 Resetting local changes..."
+            git reset --hard
+
+            echo "📥 Pull latest code..."
             git pull origin main
-            source venv/bin/activate || true
+
+            echo "📦 Activate virtualenv..."
+            source venv/bin/activate
+
+            echo "📦 Install dependencies..."
             pip install -r requirements.txt
+
+            echo "⚙️ Run migrations..."
             python manage.py migrate
+
+            echo "📁 Collect static..."
             python manage.py collectstatic --noinput
+
+            echo "🔁 Restart service..."
             systemctl restart navarka

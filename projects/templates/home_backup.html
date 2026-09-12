@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- HERO -->
+
+<!-- HERO CAROUSEL -->
+<div id="heroCarousel" class="carousel slide carousel-fade"
+     data-bs-ride="carousel"
+     data-bs-interval="3000"
+     data-bs-pause="false"
+     data-bs-wrap="true">
+
+<div class="carousel-inner">
+
+{% for s in sliders %}
+<div class="carousel-item {% if forloop.first %}active{% endif %}">
+    <img src="{{ s.image.url }}" class="d-block w-100 hero-img">
+
+    <div class="carousel-caption">
+        <h1>{{ s.title }}</h1>
+        <p>{{ s.subtitle }}</p>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+  <div class="carousel-inner">
+
+
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+<!-- STATS -->
+<div class="stats">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>50+</h2>
+            <p>Projects Completed</p>
+        </div>
+        <div class="col-md-4">
+            <h2>10+</h2>
+            <p>Years Experience</p>
+        </div>
+        <div class="col-md-4">
+            <h2>100%</h2>
+            <p>Client Satisfaction</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="section-title">About Us</h2>
+
+    <p class="text-center">
+        NavArka Realty and Shipyards LLP is a globally driven infrastructure company specializing in 
+        real estate development and shipyard construction. With a strong commitment to quality, innovation, 
+        and sustainability, we deliver world-class projects that meet international standards.
+    </p>
+
+    <p class="text-center">
+        Our expertise spans across residential, commercial, and industrial real estate, as well as 
+        advanced shipyard infrastructure designed to support maritime excellence worldwide.
+    </p>
+</div>
+
+<!-- PROJECTS -->
+<div class="container">
+    <h2 class="section-title">Our Projects</h2>
+
+    <div class="row">
+    {% for p in projects %}
+        <div class="col-md-4" data-aos="fade-up">
+            <div class="card shadow mb-4">
+
+                {% if p.image %}
+                <img src="{{ p.image.url }}" style="height:220px; object-fit:cover;">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5>{{ p.name }}</h5>
+                    <p>{{ p.location }}</p>
+                    <a href="/projects/{{ p.id }}/" class="btn btn-dark btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="row text-center">
+
+        <div class="col-md-4">
+            <h5>🏢 Real Estate Development</h5>
+            <p>Premium residential and commercial projects designed with modern architecture.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h5>⚓ Shipyard Infrastructure</h5>
+            <p>State-of-the-art shipyard development for global maritime operations.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h5>🌐 Global Projects</h5>
+            <p>Expanding infrastructure solutions across international markets.</p>
+        </div>
+
+    </div>
+</div>
+<div class="stats">
+    <div class="row">
+        <div class="col-md-3">
+            <h2>50+</h2>
+            <p>Projects</p>
+        </div>
+        <div class="col-md-3">
+            <h2>10+</h2>
+            <p>Countries</p>
+        </div>
+        <div class="col-md-3">
+            <h2>15+</h2>
+            <p>Years Experience</p>
+        </div>
+        <div class="col-md-3">
+            <h2>100%</h2>
+            <p>Client Satisfaction</p>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <h2 class="section-title">Why Choose Us</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item">✔ Global infrastructure expertise</li>
+        <li class="list-group-item">✔ High-quality construction standards</li>
+        <li class="list-group-item">✔ Innovative and sustainable solutions</li>
+        <li class="list-group-item">✔ Trusted by clients worldwide</li>
+    </ul>
+</div>
+<div class="container text-center mt-5">
+    <h3>Looking for Infrastructure Solutions?</h3>
+    <p>Contact NavArka Realty and Shipyards LLP for your next project.</p>
+    <a href="/contact/" class="btn btn-dark">Get in Touch</a>
+</div>
+
+{% endblock %}

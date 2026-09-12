@@ -1,0 +1,1533 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+    --navy:#062744;
+    --navy2:#0b3558;
+    --gold:#d7a72d;
+    --gold2:#f1c65b;
+    --ink:#13263a;
+    --muted:#657384;
+    --cream:#f7f7f4;
+    --line:#dce2e7;
+    --white:#fff;
+    --container:1240px;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(
+        var(--container),
+        calc(100% - 64px)
+    );
+    margin:auto;
+}
+
+.section{
+    padding:86px 0;
+}
+
+.eyebrow{
+    display:block;
+    color:#a77d1d;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.eyebrow.light{
+    color:#f0ca64;
+}
+
+h1,
+h2,
+h3{
+    font-family:"Playfair Display",Georgia,serif;
+    line-height:1.12;
+}
+
+h2{
+    font-size:38px;
+}
+
+p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header{
+    height:76px;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #e8ecef;
+}
+
+.nav-wrap{
+    height:100%;
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+
+/* IMPORTANT:
+   Fixed logo area prevents the large original
+   logo image from overflowing the header.
+*/
+
+.brand{
+    width:200px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    flex-shrink:0;
+}
+
+
+/* MAIN HEADER LOGO */
+
+.brand-logo{
+    width:190px;
+    height:68px;
+
+    display:block;
+
+    object-fit:cover;
+    object-position:center center;
+
+    background:#fff;
+}
+
+
+/* NAVIGATION */
+
+.main-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:24px;
+    flex:1;
+}
+
+.main-nav a{
+    font-size:10px;
+    font-weight:700;
+    color:#263d51;
+    letter-spacing:.2px;
+
+    padding:30px 0;
+
+    position:relative;
+}
+
+.main-nav a.active:after,
+.main-nav a:hover:after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:19px;
+
+    height:2px;
+
+    background:var(--gold);
+}
+
+
+/* CTA */
+
+.nav-cta{
+    background:var(--navy);
+    color:#fff;
+
+    padding:12px 18px;
+
+    border-radius:3px;
+
+    white-space:nowrap;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.2px;
+}
+
+
+/* MOBILE BUTTON */
+
+.menu-toggle{
+    display:none;
+
+    border:0;
+    background:none;
+
+    font-size:25px;
+    color:var(--navy);
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:570px;
+
+    position:relative;
+
+    background-image:
+        url("/media/homepage/hero.png");
+
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+
+    color:#fff;
+}
+
+
+/* DARK OVERLAY */
+
+.hero:before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.08),
+            rgba(0,25,45,.42)
+        );
+}
+
+
+/* SIDE OVERLAY */
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4,28,47,.35),
+            transparent 55%,
+            rgba(0,25,45,.25)
+        );
+}
+
+
+/* HERO CONTENT */
+
+.hero-content{
+    position:relative;
+
+    z-index:10;
+
+    min-height:570px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:55px 20px 45px;
+}
+
+
+/* =====================================================
+   HERO LOGO
+===================================================== */
+
+.hero-logo{
+    width:260px;
+    height:105px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    margin-bottom:14px;
+}
+
+
+/*
+   The original logo image contains whitespace.
+   Cropping it gives us the correct Navarka logo
+   without the huge white area.
+*/
+
+.hero-logo-image{
+    width:260px;
+    height:105px;
+
+    display:block;
+
+    object-fit:cover;
+    object-position:center center;
+}
+
+
+/* =====================================================
+   GOLD DIVIDER
+===================================================== */
+
+.hero-divider{
+    width:70px;
+    height:2px;
+
+    background:#d4a83a;
+
+    margin:0 auto 18px;
+}
+
+
+/* =====================================================
+   HERO SLOGAN
+===================================================== */
+
+.hero-kicker{
+    font-size:14px;
+
+    letter-spacing:6px;
+
+    font-weight:500;
+
+    color:#fff;
+
+    margin-bottom:16px;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.25);
+}
+
+
+/* =====================================================
+   HERO HEADING
+===================================================== */
+
+.hero h2{
+    max-width:900px;
+
+    margin:0 auto 18px;
+
+    font-family:Georgia,serif;
+
+    font-size:46px;
+
+    line-height:1.15;
+
+    font-weight:600;
+
+    color:#fff;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,.22);
+}
+
+
+/* =====================================================
+   HERO DESCRIPTION
+===================================================== */
+
+.hero-text{
+    max-width:760px;
+
+    margin:0 auto 25px;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    color:rgba(255,255,255,.95);
+
+    text-shadow:
+        0 1px 8px rgba(0,0,0,.22);
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.hero-actions{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    min-height:46px;
+
+    padding:0 22px;
+
+    border-radius:3px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:18px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.2px;
+}
+
+.btn span{
+    font-size:17px;
+}
+
+
+/* GOLD BUTTON */
+
+.btn-gold{
+    background:var(--gold2);
+
+    color:#183047;
+}
+
+
+/* OUTLINE BUTTON */
+
+.btn-outline{
+    border:1px solid var(--gold2);
+
+    color:#fff;
+
+    background:rgba(3,30,52,.28);
+}
+
+
+/* NAVY BUTTON */
+
+.btn-navy{
+    background:var(--navy);
+
+    color:#fff;
+}
+
+
+/* =====================================================
+   SCROLL DOWN
+===================================================== */
+
+.scroll-down{
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+
+    color:#fff;
+}
+
+.scroll-down small{
+    font-size:7px;
+
+    letter-spacing:1px;
+}
+
+.mouse{
+    width:12px;
+    height:21px;
+
+    border:1px solid #fff;
+
+    border-radius:8px;
+
+    position:relative;
+}
+
+.mouse:after{
+    content:"";
+
+    position:absolute;
+
+    top:4px;
+    left:5px;
+
+    width:2px;
+    height:4px;
+
+    background:#fff;
+
+    border-radius:2px;
+}
+
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services{
+    background:#fff;
+}
+
+.services-grid{
+    display:grid;
+
+    grid-template-columns:
+        205px 1fr 1fr;
+
+    gap:28px;
+}
+
+.service-intro{
+    padding-top:3px;
+}
+
+.service-intro h2{
+    font-size:31px;
+}
+
+.service-intro h2 em{
+    font-weight:500;
+}
+
+.service-intro p{
+    margin:18px 0 20px;
+}
+
+.text-link{
+    font-size:12px;
+
+    font-weight:700;
+
+    color:var(--navy);
+
+    display:inline-flex;
+
+    gap:10px;
+}
+
+.text-link span{
+    color:var(--gold);
+
+    font-size:17px;
+
+    line-height:10px;
+}
+
+
+/* SERVICE PANEL */
+
+.service-panel{
+    border-left:1px solid var(--line);
+
+    padding-left:22px;
+}
+
+.panel-heading{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:14px;
+}
+
+.service-icon{
+    font-size:29px;
+
+    color:var(--navy);
+}
+
+.panel-heading h3{
+    font:700 16px "DM Sans",sans-serif;
+
+    color:var(--navy);
+}
+
+.panel-heading p{
+    font-size:12px;
+}
+
+
+/* SERVICE CARDS */
+
+.card-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:9px;
+}
+
+.image-card{
+    font-size:10px;
+
+    font-weight:600;
+
+    color:#24394c;
+}
+
+.card-img{
+    height:65px;
+
+    border-radius:2px;
+
+    margin-bottom:5px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.04);
+}
+
+
+/* REALTY CARD BACKGROUNDS */
+
+.img-residential{
+    background-image:
+        linear-gradient(
+            135deg,
+            #7c9b9d,
+            #d7d1bd 45%,
+            #34758a
+        );
+}
+
+.img-commercial{
+    background-image:
+        linear-gradient(
+            135deg,
+            #a7b5bd,
+            #e2dfd1 42%,
+            #6e8794
+        );
+}
+
+.img-villa{
+    background-image:
+        linear-gradient(
+            135deg,
+            #547b70,
+            #dfcf9f 55%,
+            #557f8b
+        );
+}
+
+.img-resort{
+    background-image:
+        linear-gradient(
+            135deg,
+            #70a2a5,
+            #d7c79b 50%,
+            #38778e
+        );
+}
+
+.img-hotel{
+    background-image:
+        linear-gradient(
+            135deg,
+            #556b76,
+            #d6d4c8 48%,
+            #7892a0
+        );
+}
+
+.img-land{
+    background-image:
+        linear-gradient(
+            135deg,
+            #658b4c,
+            #d1c28d 55%,
+            #739d55
+        );
+}
+
+
+/* MARITIME */
+
+.img-shipbuilding{
+    background-image:
+        linear-gradient(
+            135deg,
+            #315e76,
+            #b4c5c5 45%,
+            #285a76
+        );
+}
+
+.img-chartering{
+    background-image:
+        linear-gradient(
+            135deg,
+            #4b899b,
+            #d7d4bd 52%,
+            #397083
+        );
+}
+
+.img-brokerage{
+    background-image:
+        linear-gradient(
+            135deg,
+            #2b6177,
+            #b6c8c8 48%,
+            #406e7c
+        );
+}
+
+.img-consultancy{
+    background-image:
+        linear-gradient(
+            135deg,
+            #a89d7c,
+            #e5dfca 48%,
+            #567b89
+        );
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.projects{
+    background:#eaf2f9;
+}
+
+.projects-layout{
+    display:grid;
+
+    grid-template-columns:
+        205px 1fr;
+
+    gap:28px;
+}
+
+.projects-copy h2{
+    font-size:30px;
+}
+
+.projects-copy p{
+    margin:15px 0 22px;
+}
+
+.project-strip{
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:10px;
+}
+
+.project-card{
+    background:#fff;
+
+    min-width:0;
+}
+
+.project-img{
+    height:150px;
+}
+
+.project-residential{
+    background:
+        linear-gradient(
+            135deg,
+            #536f72,
+            #d6caa5 46%,
+            #4f806e
+        );
+}
+
+.project-villa{
+    background:
+        linear-gradient(
+            135deg,
+            #3f6e77,
+            #d8c796 50%,
+            #7ca18c
+        );
+}
+
+.project-resort{
+    background:
+        linear-gradient(
+            135deg,
+            #5b8e85,
+            #ded0a3 50%,
+            #42889a
+        );
+}
+
+.project-hotel{
+    background:
+        linear-gradient(
+            135deg,
+            #5a7180,
+            #c7c3b0 50%,
+            #708a95
+        );
+}
+
+.project-shipyard{
+    background:
+        linear-gradient(
+            135deg,
+            #3b6075,
+            #a7b5b6 48%,
+            #315f75
+        );
+}
+
+.project-card > div:last-child{
+    padding:8px 9px;
+}
+
+.project-card strong{
+    display:block;
+
+    font-size:11px;
+}
+
+.project-card small{
+    display:block;
+
+    font-size:8px;
+
+    color:#788696;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about{
+    background:#fff;
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.15fr .95fr .95fr .95fr;
+}
+
+.about-copy{
+    padding-right:35px;
+}
+
+.about-copy h2{
+    font-size:29px;
+}
+
+.about-copy p{
+    margin:19px 0;
+}
+
+.value-box{
+    border-left:1px solid var(--line);
+
+    padding:0 23px;
+}
+
+.feature-icon{
+    font-size:31px;
+
+    color:var(--gold);
+
+    display:block;
+
+    margin-bottom:8px;
+}
+
+.value-box h3{
+    font-size:23px;
+
+    margin:6px 0 12px;
+}
+
+.value-box p{
+    font-size:12px;
+
+    margin-bottom:12px;
+}
+
+
+/* =====================================================
+   JOURNEY
+===================================================== */
+
+.journey{
+    position:relative;
+
+    overflow:hidden;
+
+    background:#063254;
+
+    color:#fff;
+
+    min-height:190px;
+}
+
+.journey-bg{
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,40,67,.93),
+            rgba(5,54,81,.76),
+            rgba(2,34,55,.88)
+        ),
+        linear-gradient(
+            130deg,
+            #3b6d66,
+            #9b8e67 35%,
+            #2c7d98 70%,
+            #0b405d
+        );
+}
+
+.journey-content{
+    position:relative;
+
+    text-align:center;
+
+    padding:25px 0 24px;
+}
+
+.journey h2{
+    font-size:22px;
+}
+
+.journey h2 em{
+    font-weight:500;
+}
+
+.journey-line{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:22px;
+}
+
+.journey-line > div{
+    font-size:21px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    min-width:55px;
+}
+
+.journey-line span{
+    font:600 8px "DM Sans",sans-serif;
+
+    white-space:nowrap;
+
+    margin-top:2px;
+}
+
+.journey-line i{
+    font-style:normal;
+
+    color:#e3bd4f;
+}
+
+.journey-line b{
+    height:35px;
+
+    width:1px;
+
+    background:rgba(255,255,255,.4);
+
+    margin:0 4px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+    padding:55px 0;
+
+    background:#f8f8f5;
+}
+
+.contact-box{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.contact-box h2{
+    font-size:32px;
+}
+
+.contact-box p{
+    margin-top:8px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    background:#062744;
+
+    color:#fff;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.2fr 1fr 1.2fr .65fr;
+
+    gap:40px;
+
+    padding:43px 0 35px;
+}
+
+
+/* FOOTER LOGO */
+
+/* Footer uses the same full NavArka PNG as the header.
+   Do not use the .brand fixed-height/overflow rule here,
+   otherwise the slogan at the bottom of the PNG gets clipped. */
+.brand-footer {
+    width: 240px;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+/* =========================
+   FOOTER LOGO
+========================= */
+/* =========================
+   FOOTER LOGO
+========================= */
+
+
+/* FOOTER LINKS */
+
+.footer h4{
+    font-size:12px;
+
+    margin-bottom:11px;
+}
+
+.footer a,
+.footer p{
+    display:block;
+
+    color:#d5e0e8;
+
+    font-size:10px;
+
+    line-height:1.9;
+}
+
+/* FOOTER BRAND */
+.footer-brand {
+    width: 260px;
+}
+
+.footer-brand-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+}
+
+.footer-brand-tagline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    white-space: nowrap;
+}
+
+.footer-brand-tagline span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #d6a82e;
+}
+/* SOCIAL */
+
+.socials{
+    display:flex;
+
+    gap:8px;
+}
+
+.socials a{
+    width:27px;
+
+    height:27px;
+
+    border:1px solid
+        rgba(255,255,255,.35);
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    color:#fff;
+}
+
+
+/* FOOTER BOTTOM */
+
+.footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,.18);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    font-size:8px;
+
+    color:#b9c9d4;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1050px){
+
+    .main-nav{
+        gap:14px;
+    }
+
+    .main-nav a{
+        font-size:9px;
+    }
+
+    .nav-cta{
+        display:none;
+    }
+
+    .services-grid{
+        grid-template-columns:
+            180px 1fr;
+    }
+
+    .maritime-panel{
+        grid-column:2;
+    }
+
+    .project-strip{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .about-copy{
+        padding-bottom:35px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:760px){
+
+    .container{
+        width:min(
+            var(--container),
+            calc(100% - 34px)
+        );
+    }
+
+
+    /* HEADER */
+
+    .site-header{
+        height:68px;
+    }
+
+    .brand{
+        width:160px;
+
+        height:62px;
+    }
+
+    .brand-logo{
+        width:155px;
+
+        height:60px;
+    }
+
+    .menu-toggle{
+        display:block;
+
+        margin-left:auto;
+    }
+
+
+    .main-nav{
+        display:none;
+
+        position:absolute;
+
+        top:68px;
+
+        left:0;
+        right:0;
+
+        background:#fff;
+
+        flex-direction:column;
+
+        gap:0;
+
+        padding:8px 22px;
+
+        border-bottom:
+            1px solid var(--line);
+
+        box-shadow:
+            0 8px 18px
+            rgba(0,0,0,.08);
+    }
+
+    .main-nav.open{
+        display:flex;
+    }
+
+    .main-nav a{
+        padding:11px 0;
+
+        width:100%;
+    }
+
+    .main-nav a.active:after,
+    .main-nav a:hover:after{
+        display:none;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero-content{
+        min-height:600px;
+
+        padding:50px 18px 40px;
+    }
+
+    .hero-logo{
+        width:220px;
+
+        height:90px;
+    }
+
+    .hero-logo-image{
+        width:220px;
+
+        height:90px;
+    }
+
+    .hero-kicker{
+        font-size:11px;
+
+        letter-spacing:4px;
+    }
+
+    .hero h2{
+        font-size:32px;
+    }
+
+    .hero-text{
+        font-size:14px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+
+        gap:10px;
+
+        width:240px;
+    }
+
+    .hero-actions .btn{
+        width:100%;
+    }
+
+
+    /* SECTIONS */
+
+    .section{
+        padding:62px 0;
+    }
+
+    .services-grid,
+    .projects-layout{
+        grid-template-columns:1fr;
+    }
+
+
+    .service-panel,
+    .maritime-panel{
+        grid-column:auto;
+
+        border-left:0;
+
+        border-top:
+            1px solid var(--line);
+
+        padding:25px 0 0;
+    }
+
+    .card-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .projects-copy{
+        margin-bottom:5px;
+    }
+
+    .project-strip{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .project-img{
+        height:125px;
+    }
+
+
+    /* ABOUT */
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-copy{
+        padding-right:0;
+    }
+
+    .value-box{
+        border-left:0;
+
+        border-top:
+            1px solid var(--line);
+
+        padding:28px 0 0;
+    }
+
+
+    /* JOURNEY */
+
+    .journey-line{
+        overflow:auto;
+
+        justify-content:flex-start;
+
+        padding:0 10px;
+    }
+
+    .journey-line b{
+        display:none;
+    }
+
+
+    /* CONTACT */
+
+    .contact-box{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid{
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:28px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:5px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:460px){
+
+    .brand{
+        width:145px;
+    }
+
+    .brand-logo{
+        width:145px;
+    }
+
+    .hero-logo{
+        width:200px;
+
+        height:82px;
+    }
+
+    .hero-logo-image{
+        width:200px;
+
+        height:82px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    h2{
+        font-size:31px;
+    }
+
+    .project-strip{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-logo{
+        width:190px;
+    }
+
+}

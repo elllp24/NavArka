@@ -1,158 +1,837 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block content %}
+    <title>NAVARKA | Realty & Shipyards LLP</title>
 
-<!-- HERO -->
+    <meta name="description"
+          content="NAVARKA Realty & Shipyards LLP — Building places. Creating possibilities. Connecting horizons.">
 
-<!-- HERO CAROUSEL -->
-<div id="heroCarousel" class="carousel slide carousel-fade"
-     data-bs-ride="carousel"
-     data-bs-interval="3000"
-     data-bs-pause="false"
-     data-bs-wrap="true">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
 
-<div class="carousel-inner">
+<body>
 
-{% for s in sliders %}
-<div class="carousel-item {% if forloop.first %}active{% endif %}">
-    <img src="{{ s.image.url }}" class="d-block w-100 hero-img">
+<!-- =====================================================
+     HEADER
+===================================================== -->
+<header class="site-header" id="top">
 
-    <div class="carousel-caption">
-        <h1>{{ s.title }}</h1>
-        <p>{{ s.subtitle }}</p>
+    <div class="container nav-wrap">
+
+        <!-- NAVARKA LOGO -->
+        <a href="#home" class="brand">
+            <img
+                src="/media/homepage/navarka-logo.png"
+                alt="NAVARKA - Soil to Sea"
+                class="brand-logo"
+            >
+        </a>
+
+        <!-- MOBILE MENU -->
+        <button
+            class="menu-toggle"
+            aria-label="Open menu"
+            aria-expanded="false">
+            ☰
+        </button>
+
+        <!-- NAVIGATION -->
+        <nav class="main-nav">
+
+            <a class="active" href="#home">
+                HOME
+            </a>
+
+            <a href="#about">
+                ABOUT
+            </a>
+
+            <a href="#realty">
+                REALTY
+            </a>
+
+            <a href="#maritime">
+                MARITIME
+            </a>
+
+            <a href="#projects">
+                PROJECTS
+            </a>
+
+            <a href="#vision">
+                VISION &amp; MISSION
+            </a>
+
+            <a href="#contact">
+                CONTACT
+            </a>
+
+        </nav>
+
+        <!-- CTA -->
+        <a href="#contact" class="nav-cta">
+            PARTNER WITH US
+        </a>
+
     </div>
-</div>
-{% endfor %}
 
-</div>
-
-  <div class="carousel-inner">
+</header>
 
 
+<main>
 
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section class="hero" id="home">
 
-  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
+    <div class="hero-overlay"></div>
 
-</div>
-<!-- STATS -->
-<div class="stats">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>50+</h2>
-            <p>Projects Completed</p>
+    <div class="container hero-content">
+
+        <!-- HERO LOGO -->
+        <div class="hero-logo">
+
+            <img
+                src="/media/homepage/navarka-logo.png"
+                alt="NAVARKA"
+                class="hero-logo-image"
+            >
+
         </div>
-        <div class="col-md-4">
-            <h2>10+</h2>
-            <p>Years Experience</p>
+
+
+        <!-- GOLD DIVIDER -->
+        <div class="hero-divider"></div>
+
+
+       
+        <!-- MAIN HEADING -->
+        <h2>
+            Building places. Creating possibilities.<br>
+            Connecting horizons.
+        </h2>
+
+
+        <!-- DESCRIPTION -->
+        <p class="hero-text">
+            We create and develop distinctive spaces across residential,
+            commercial, villas, resorts and hotels, while delivering
+            specialised solutions in shipbuilding, ship hire and brokering,
+            and maritime consultancy.
+        </p>
+
+
+        <!-- BUTTONS -->
+        <div class="hero-actions">
+
+            <a href="#projects" class="btn btn-gold">
+                Explore Our Projects
+                <span>→</span>
+            </a>
+
+            <a href="#maritime" class="btn btn-outline">
+                Our Maritime Services
+                <span>→</span>
+            </a>
+
         </div>
-        <div class="col-md-4">
-            <h2>100%</h2>
-            <p>Client Satisfaction</p>
-        </div>
+
+
+        <!-- SCROLL -->
+        <a href="#services" class="scroll-down">
+
+            <span class="mouse"></span>
+
+            <small>
+                SCROLL DOWN
+            </small>
+
+        </a>
+
     </div>
-</div>
 
-<div class="container mt-5">
-    <h2 class="section-title">About Us</h2>
+</section>
 
-    <p class="text-center">
-        NavArka Realty and Shipyards LLP is a globally driven infrastructure company specializing in 
-        real estate development and shipyard construction. With a strong commitment to quality, innovation, 
-        and sustainability, we deliver world-class projects that meet international standards.
-    </p>
 
-    <p class="text-center">
-        Our expertise spans across residential, commercial, and industrial real estate, as well as 
-        advanced shipyard infrastructure designed to support maritime excellence worldwide.
-    </p>
-</div>
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+<section class="services section" id="services">
 
-<!-- PROJECTS -->
-<div class="container">
-    <h2 class="section-title">Our Projects</h2>
+    <div class="container services-grid">
 
-    <div class="row">
-    {% for p in projects %}
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="card shadow mb-4">
 
-                {% if p.image %}
-                <img src="{{ p.image.url }}" style="height:220px; object-fit:cover;">
-                {% endif %}
+        <!-- INTRO -->
+        <div class="service-intro">
 
-                <div class="card-body">
-                    <h5>{{ p.name }}</h5>
-                    <p>{{ p.location }}</p>
-                    <a href="/projects/{{ p.id }}/" class="btn btn-dark btn-sm">View</a>
+            <span class="eyebrow">
+                OUR SERVICES
+            </span>
+
+            <h2>
+                Two Worlds.<br>
+                <em>One Vision.</em>
+            </h2>
+
+            <p>
+                From creating exceptional spaces on land to delivering
+                reliable solutions at sea, we bring together real estate
+                development and maritime expertise under one roof.
+            </p>
+
+            <a href="#realty" class="text-link">
+                Learn More
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <!-- REALTY -->
+        <div class="service-panel" id="realty">
+
+            <div class="panel-heading">
+
+                <span class="service-icon">
+                    ⌂
+                </span>
+
+                <div>
+
+                    <h3>
+                        REALTY
+                    </h3>
+
+                    <p>
+                        Creating Spaces That Belong
+                    </p>
+
                 </div>
+
             </div>
+
+
+            <div class="card-grid">
+
+                <a class="image-card" href="#projects">
+                    <div class="card-img img-residential"></div>
+                    <span>Residential</span>
+                </a>
+
+                <a class="image-card" href="#projects">
+                    <div class="card-img img-commercial"></div>
+                    <span>Commercial</span>
+                </a>
+
+                <a class="image-card" href="#projects">
+                    <div class="card-img img-villa"></div>
+                    <span>Villas</span>
+                </a>
+
+                <a class="image-card" href="#projects">
+                    <div class="card-img img-resort"></div>
+                    <span>Resorts</span>
+                </a>
+
+                <a class="image-card" href="#projects">
+                    <div class="card-img img-hotel"></div>
+                    <span>Hotels</span>
+                </a>
+
+                <a class="image-card" href="#projects">
+                    <div class="card-img img-land"></div>
+                    <span>Land Development</span>
+                </a>
+
+            </div>
+
         </div>
-    {% endfor %}
+
+
+        <!-- MARITIME -->
+        <div class="service-panel maritime-panel" id="maritime">
+
+            <div class="panel-heading">
+
+                <span class="service-icon">
+                    ⚓
+                </span>
+
+                <div>
+
+                    <h3>
+                        MARITIME
+                    </h3>
+
+                    <p>
+                        From Shore to Sea
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-grid maritime-grid">
+
+                <a class="image-card" href="#contact">
+                    <div class="card-img img-shipbuilding"></div>
+                    <span>Shipbuilding</span>
+                </a>
+
+                <a class="image-card" href="#contact">
+                    <div class="card-img img-chartering"></div>
+                    <span>Ship Hire &amp; Chartering</span>
+                </a>
+
+                <a class="image-card" href="#contact">
+                    <div class="card-img img-brokerage"></div>
+                    <span>Ship Brokering</span>
+                </a>
+
+                <a class="image-card" href="#contact">
+                    <div class="card-img img-consultancy"></div>
+                    <span>Maritime Consultancy</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+<section class="projects section" id="projects">
+
+    <div class="container projects-layout">
+
+
+        <div class="projects-copy">
+
+            <span class="eyebrow">
+                OUR PROJECTS
+            </span>
+
+            <h2>
+                Ideas Become Places
+            </h2>
+
+            <p>
+                Explore our evolving portfolio of developments across
+                real estate and maritime.
+            </p>
+
+            <a href="/projects/" class="btn btn-navy">
+                View All Projects
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <div class="project-strip">
+
+            <article class="project-card">
+
+                <div class="project-img project-residential"></div>
+
+                <div>
+                    <strong>Residential</strong>
+                    <small>Bhubaneswar</small>
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <div class="project-img project-villa"></div>
+
+                <div>
+                    <strong>Villas</strong>
+                    <small>Puri</small>
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <div class="project-img project-resort"></div>
+
+                <div>
+                    <strong>Resort</strong>
+                    <small>Koraput</small>
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <div class="project-img project-hotel"></div>
+
+                <div>
+                    <strong>Hotel</strong>
+                    <small>Goa</small>
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <div class="project-img project-shipyard"></div>
+
+                <div>
+                    <strong>Shipyard</strong>
+                    <small>Paradip</small>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT / VISION / MISSION
+===================================================== -->
+<section class="about section" id="about">
+
+    <div class="container about-grid">
+
+
+        <div class="about-copy">
+
+            <span class="eyebrow">
+                ABOUT US
+            </span>
+
+            <h2>
+                A Diversified Enterprise<br>
+                with a Clear Purpose
+            </h2>
+
+            <p>
+                NAVARKA REALTY &amp; SHIPYARDS LLP is a diversified
+                enterprise operating across real estate development
+                and maritime services. We create assets, connect
+                opportunities and build lasting value — from soil to sea.
+            </p>
+
+            <a href="#vision" class="text-link">
+                More About Us
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <!-- VISION -->
+        <div class="value-box" id="vision">
+
+            <span class="feature-icon">
+                ⌁
+            </span>
+
+            <span class="eyebrow">
+                OUR VISION
+            </span>
+
+            <h3>
+                To Build Beyond<br>
+                Boundaries
+            </h3>
+
+            <p>
+                To become a trusted and diversified enterprise creating
+                exceptional spaces on land and delivering dependable
+                solutions at sea.
+            </p>
+
+            <a href="#contact" class="text-link">
+                Read More
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <!-- MISSION -->
+        <div class="value-box">
+
+            <span class="feature-icon">
+                ◎
+            </span>
+
+            <span class="eyebrow">
+                OUR MISSION
+            </span>
+
+            <h3>
+                Build. Connect. Deliver.
+            </h3>
+
+            <p>
+                To develop quality assets, create meaningful experiences,
+                connect opportunities and deliver reliable solutions
+                for a sustainable future.
+            </p>
+
+            <a href="#contact" class="text-link">
+                Read More
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <!-- VALUES -->
+        <div class="value-box">
+
+            <span class="feature-icon">
+                ⌁
+            </span>
+
+            <span class="eyebrow">
+                OUR VALUES
+            </span>
+
+            <h3>
+                Long-Term Thinking
+            </h3>
+
+            <p>
+                <strong>Integrity</strong> |
+                <strong>Quality</strong> |
+                <strong>Innovation</strong>
+                <br>
+                <strong>Trust</strong> |
+                <strong>Collaboration</strong>
+            </p>
+
+            <p>
+                We are committed to responsible growth, trusted
+                partnerships and creating value for our customers,
+                partners and communities.
+            </p>
+
+            <a href="#contact" class="text-link">
+                Learn More
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+<section class="journey">
+
+    <div class="journey-bg"></div>
+
+    <div class="container journey-content">
+
+        <span class="eyebrow light">
+            S O I L &nbsp; T O &nbsp; S E A
+        </span>
+
+        <h2>
+            One Vision. Two Worlds.<br>
+            <em>Endless Possibilities.</em>
+        </h2>
+
+
+        <div class="journey-line">
+
+            <div>
+                ⌾
+                <span>Land</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ▦
+                <span>Development</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ⌂
+                <span>Homes</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ⌂
+                <span>Villas</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ♨
+                <span>Resorts</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ▥
+                <span>Hotels</span>
+            </div>
+
+
+            <b></b>
+
+
+            <div>
+                ⚓
+                <span>Shipbuilding</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ♙
+                <span>Chartering</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ⌘
+                <span>Brokering</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ◉
+                <span>Consultancy</span>
+            </div>
+
+            <i>→</i>
+
+            <div>
+                ◎
+                <span>Global Shipping</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+<section class="contact section" id="contact">
+
+    <div class="container contact-box">
+
+        <div>
+
+            <span class="eyebrow">
+                LET'S CONNECT
+            </span>
+
+            <h2>
+                Have a project or maritime requirement?
+            </h2>
+
+            <p>
+                Talk to the NAVARKA team and let's build the next
+                opportunity together.
+            </p>
+
+        </div>
+
+
+        <a href="mailto:info@navaraka.in" class="btn btn-gold">
+            Contact Us
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <!-- FOOTER BRAND -->
+        <div class="footer-brand">
+
+            <a href="#top" class="brand brand-footer">
+
+          <div class="footer-brand">
+    <div class="footer-brand-name">NavArka</div>
+    <div class="footer-brand-tagline">
+        <span></span>
+        SOIL TO SEA
+        <span></span>
     </div>
 </div>
 
-<div class="container mt-5">
-    <h2 class="section-title">Our Services</h2>
+            </a>
 
-    <div class="row text-center">
-
-        <div class="col-md-4">
-            <h5>🏢 Real Estate Development</h5>
-            <p>Premium residential and commercial projects designed with modern architecture.</p>
         </div>
 
-        <div class="col-md-4">
-            <h5>⚓ Shipyard Infrastructure</h5>
-            <p>State-of-the-art shipyard development for global maritime operations.</p>
+
+        <!-- QUICK LINKS -->
+        <div>
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#realty">Realty</a>
+            <a href="#maritime">Maritime</a>
+            <a href="#projects">Projects</a>
+            <a href="#vision">Vision &amp; Mission</a>
+            <a href="#contact">Contact</a>
+
         </div>
 
-        <div class="col-md-4">
-            <h5>🌐 Global Projects</h5>
-            <p>Expanding infrastructure solutions across international markets.</p>
+
+        <!-- CONTACT -->
+        <div>
+
+            <h4>
+                Contact Us
+            </h4>
+
+            <p>
+                Plot-11/1890, Gopal Krishna Nagar,<br>
+                Pokhariput, Bhubaneswar,<br>
+                Odisha, India - 751020
+            </p>
+
+            <p>
+                +91 9437786077
+            </p>
+
+            <a href="mailto:info@navaraka.in">
+                info@navaraka.in
+            </a>
+
+        </div>
+
+
+        <!-- SOCIAL -->
+        <div>
+
+            <h4>
+                Stay Connected
+            </h4>
+
+            <div class="socials">
+
+                <a href="#" aria-label="LinkedIn">
+                    in
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    ▶
+                </a>
+
+                <a
+                    href="mailto:info@navaraka.in"
+                    aria-label="Email">
+                    ✉
+                </a>
+
+            </div>
+
         </div>
 
     </div>
-</div>
-<div class="stats">
-    <div class="row">
-        <div class="col-md-3">
-            <h2>50+</h2>
-            <p>Projects</p>
-        </div>
-        <div class="col-md-3">
-            <h2>10+</h2>
-            <p>Countries</p>
-        </div>
-        <div class="col-md-3">
-            <h2>15+</h2>
-            <p>Years Experience</p>
-        </div>
-        <div class="col-md-3">
-            <h2>100%</h2>
-            <p>Client Satisfaction</p>
-        </div>
+
+
+    <div class="container footer-bottom">
+
+        <span>
+            © 2026 NAVARKA REALTY &amp; SHIPYARDS LLP.
+            All Rights Reserved.
+        </span>
+
+        <span>
+            BUILDING PLACES. CONNECTING HORIZONS.
+        </span>
+
     </div>
-</div>
-<div class="container mt-5">
-    <h2 class="section-title">Why Choose Us</h2>
 
-    <ul class="list-group">
-        <li class="list-group-item">✔ Global infrastructure expertise</li>
-        <li class="list-group-item">✔ High-quality construction standards</li>
-        <li class="list-group-item">✔ Innovative and sustainable solutions</li>
-        <li class="list-group-item">✔ Trusted by clients worldwide</li>
-    </ul>
-</div>
-<div class="container text-center mt-5">
-    <h3>Looking for Infrastructure Solutions?</h3>
-    <p>Contact NavArka Realty and Shipyards LLP for your next project.</p>
-    <a href="/contact/" class="btn btn-dark">Get in Touch</a>
-</div>
+</footer>
 
-{% endblock %}
+
+<!-- =====================================================
+     MOBILE MENU SCRIPT
+===================================================== -->
+<script>
+
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+
+    toggle.addEventListener('click', () => {
+
+        const open = nav.classList.toggle('open');
+
+        toggle.setAttribute(
+            'aria-expanded',
+            open
+        );
+
+    });
+
+
+    document
+        .querySelectorAll('.main-nav a')
+        .forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                nav.classList.remove('open');
+
+            });
+
+        });
+
+</script>
+
+</body>
+</html>

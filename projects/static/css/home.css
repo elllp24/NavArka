@@ -60,9 +60,9 @@ a{
 .eyebrow{
     display:block;
     color:#a77d1d;
-    font-size:11px;
+    font-size:13px;
     font-weight:700;
-    letter-spacing:2px;
+    letter-spacing:3px;
     margin-bottom:12px;
 }
 
@@ -78,14 +78,42 @@ h3{
 }
 
 h2{
-    font-size:38px;
+    font-size:52px;
+    line-height:1.08;
+    font-weight:500;
+    letter-spacing:-0.5px;
 }
 
 p{
     color:var(--muted);
-    font-size:14px;
+    font-size:16px;
 }
 
+
+/* =====================================================
+   PREMIUM TYPOGRAPHY
+   Inspired by the Partner With Us page
+   ===================================================== */
+
+.hero h2,
+.service-intro h2,
+.projects-copy h2,
+.about-copy h2,
+.journey h2,
+.contact-box h2,
+.value-box h3 {
+    letter-spacing: -0.5px;
+}
+
+.hero h2 em,
+.service-intro h2 em,
+.projects-copy h2 em,
+.about-copy h2 em,
+.journey h2 em,
+.contact-box h2 em {
+    font-style: italic;
+    font-weight: 500;
+}
 
 /* =====================================================
    HEADER
@@ -150,12 +178,12 @@ p{
     align-items:center;
     justify-content:center;
 
-    gap:24px;
+    gap:28px;
     flex:1;
 }
 
 .main-nav a{
-    font-size:10px;
+    font-size:15px;
     font-weight:700;
     color:#263d51;
     letter-spacing:.2px;
@@ -183,12 +211,11 @@ p{
 
 
 /* CTA */
-
 .nav-cta{
     background:var(--navy);
     color:#fff;
 
-    padding:12px 18px;
+    padding:15px 25px;
 
     border-radius:3px;
 
@@ -198,9 +225,29 @@ p{
     align-items:center;
     justify-content:center;
 
-    font-size:11px;
+    font-size:14px;
     font-weight:700;
-    letter-spacing:.2px;
+    letter-spacing:.3px;
+
+    box-shadow:0 5px 14px rgba(6,39,68,.16);
+
+    transition:all .25s ease;
+}
+
+.nav-cta:hover{
+    background:var(--gold);
+    color:#fff;
+
+    transform:translateY(-1px);
+
+    box-shadow:0 7px 18px rgba(6,39,68,.22);
+}
+
+.nav-cta:hover{
+    background:var(--gold);
+    color:#fff;
+    transform:translateY(-1px);
+    box-shadow:0 7px 18px rgba(6,39,68,.22);
 }
 
 
@@ -224,7 +271,7 @@ p{
 ===================================================== */
 
 .hero{
-    min-height:570px;
+    min-height:650px;
 
     position:relative;
 
@@ -281,7 +328,7 @@ p{
 
     z-index:10;
 
-    min-height:570px;
+    min-height:650px;
 
     display:flex;
     flex-direction:column;
@@ -368,46 +415,34 @@ p{
 /* =====================================================
    HERO HEADING
 ===================================================== */
-
 .hero h2{
-    max-width:900px;
+    max-width:1000px;
+    margin:0 auto 22px;
 
-    margin:0 auto 18px;
+    font-size:68px;
 
-    font-family:Georgia,serif;
+    line-height:1.04;
 
-    font-size:46px;
+    font-weight:500;
 
-    line-height:1.15;
-
-    font-weight:600;
+    letter-spacing:-1px;
 
     color:#fff;
-
-    text-shadow:
-        0 2px 12px rgba(0,0,0,.22);
 }
-
 
 /* =====================================================
    HERO DESCRIPTION
 ===================================================== */
-
 .hero-text{
-    max-width:760px;
+    max-width:850px;
+    margin:0 auto 32px;
 
-    margin:0 auto 25px;
+    font-size:18px;
 
-    font-size:15px;
+    line-height:1.75;
 
-    line-height:1.6;
-
-    color:rgba(255,255,255,.95);
-
-    text-shadow:
-        0 1px 8px rgba(0,0,0,.22);
+    color:#fff;
 }
-
 
 /* =====================================================
    BUTTONS
@@ -539,21 +574,87 @@ p{
     background:#fff;
 }
 
+/* =====================================================
+   SERVICES - TWO WORLDS / ONE VISION
+===================================================== */
+
+.services{
+    background:#fff;
+}
+
 .services-grid{
     display:grid;
 
+    /* Give the heading enough room */
     grid-template-columns:
-        205px 1fr 1fr;
+        270px 1fr 1fr;
 
-    gap:28px;
+    gap:35px;
+
+    align-items:start;
 }
 
 .service-intro{
     padding-top:3px;
+
+    /* Keep heading aligned properly */
+    min-width:0;
 }
 
 .service-intro h2{
-    font-size:31px;
+    font-family:"Playfair Display", Georgia, serif;
+
+    font-size:42px;
+
+    line-height:1.08;
+
+    font-weight:500;
+
+    letter-spacing:-0.5px;
+
+    color:var(--navy);
+
+    margin:8px 0 0;
+
+    white-space:normal;
+}
+
+.service-intro h2 em{
+    font-weight:500;
+
+    font-style:italic;
+}
+
+.service-intro p{
+    margin:18px 0 20px;
+
+    font-size:15px;
+
+    line-height:1.65;
+
+    color:#536b7e;
+}
+
+.text-link{
+    font-size:12px;
+
+    font-weight:700;
+
+    color:var(--navy);
+
+    display:inline-flex;
+
+    gap:10px;
+
+    align-items:center;
+}
+
+.text-link span{
+    color:var(--gold);
+
+    font-size:17px;
+
+    line-height:10px;
 }
 
 .service-intro h2 em{
@@ -610,13 +711,15 @@ p{
 }
 
 .panel-heading h3{
-    font:700 16px "DM Sans",sans-serif;
-
-    color:var(--navy);
+    font-family:"Playfair Display",serif;
+    font-size:24px;
+    font-weight:500;
+    line-height:1.15;
+    color:#082746;
 }
 
 .panel-heading p{
-    font-size:12px;
+    font-size:14px;
 }
 
 
@@ -632,7 +735,7 @@ p{
 }
 
 .image-card{
-    font-size:10px;
+    font-size:12px;
 
     font-weight:600;
 
@@ -779,7 +882,9 @@ p{
 }
 
 .projects-copy h2{
-    font-size:30px;
+    font-size:48px;
+    line-height:1.08;
+    font-weight:500;
 }
 
 .projects-copy p{
@@ -862,13 +967,13 @@ p{
 .project-card strong{
     display:block;
 
-    font-size:11px;
+    font-size:13px;
 }
 
 .project-card small{
     display:block;
 
-    font-size:8px;
+    font-size:10px;
 
     color:#788696;
 }
@@ -894,9 +999,10 @@ p{
 }
 
 .about-copy h2{
-    font-size:29px;
+    font-size:48px;
+    line-height:1.08;
+    font-weight:500;
 }
-
 .about-copy p{
     margin:19px 0;
 }
@@ -918,13 +1024,14 @@ p{
 }
 
 .value-box h3{
-    font-size:23px;
-
-    margin:6px 0 12px;
+    font-family:"Playfair Display",serif;
+    font-size:29px;
+    font-weight:500;
+    line-height:1.15;
 }
 
 .value-box p{
-    font-size:12px;
+    font-size:14px;
 
     margin-bottom:12px;
 }
@@ -976,7 +1083,7 @@ p{
 }
 
 .journey h2{
-    font-size:22px;
+    font-size:34px;
 }
 
 .journey h2 em{
@@ -1052,7 +1159,7 @@ p{
 }
 
 .contact-box h2{
-    font-size:32px;
+    font-size:40px;
 }
 
 .contact-box p{
@@ -1209,15 +1316,19 @@ p{
 @media(max-width:1050px){
 
     .main-nav{
-        gap:14px;
+        gap:16px;
     }
 
-    .main-nav a{
-        font-size:9px;
-    }
+   .main-nav a{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.3px;
+}
 
     .nav-cta{
-        display:none;
+        display:inline-flex;
+        padding:13px 18px;
+        font-size:13px;
     }
 
     .services-grid{
@@ -1317,8 +1428,9 @@ p{
 
     .main-nav a{
         padding:11px 0;
-
         width:100%;
+        font-size:16px;
+        font-weight:600;
     }
 
     .main-nav a.active:after,
@@ -1330,11 +1442,11 @@ p{
     /* HERO */
 
     .hero{
-        min-height:600px;
+        min-height:620px;
     }
 
     .hero-content{
-        min-height:600px;
+        min-height:620px;
 
         padding:50px 18px 40px;
     }
@@ -1358,11 +1470,11 @@ p{
     }
 
     .hero h2{
-        font-size:32px;
+        font-size:42px;
     }
 
     .hero-text{
-        font-size:14px;
+        font-size:16px;
     }
 
     .hero-actions{
@@ -1510,11 +1622,11 @@ p{
     }
 
     .hero h2{
-        font-size:28px;
+        font-size:36px;
     }
 
     h2{
-        font-size:31px;
+        font-size:36px;
     }
 
     .project-strip{
@@ -1530,4 +1642,147 @@ p{
         width:190px;
     }
 
+}
+
+/* =====================================================
+   FOOTER TYPOGRAPHY
+===================================================== */
+
+/* Footer column headings */
+.footer h4,
+.footer-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 0.2px;
+}
+
+/* Footer menu links */
+.footer a {
+    font-size: 14px;
+    line-height: 1.9;
+    font-weight: 500;
+}
+
+/* Quick Links */
+.footer-links a,
+.footer-menu a {
+    font-size: 14px;
+    line-height: 1.9;
+    font-weight: 500;
+}
+
+/* Contact information */
+.footer-contact,
+.footer-contact p,
+.footer-contact a {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Stay Connected text/icons area */
+.footer-social a {
+    font-size: 14px;
+}
+
+/* Footer copyright */
+.footer-bottom {
+    font-size: 11px;
+}
+
+/* Footer tagline */
+.footer-bottom span:last-child {
+    font-size: 11px;
+    letter-spacing: 0.3px;
+}
+
+
+/* Hover effect for footer links */
+.footer a:hover {
+    color: #d2a52e;
+}
+/* =====================================================
+   FORCE FOOTER CONTACT TEXT SIZE
+===================================================== */
+
+/* Contact Us heading */
+.footer-contact h4,
+.footer-contact h3,
+.footer-contact .footer-title {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 18px !important;
+}
+
+/* Address and phone text */
+.footer-contact p,
+.footer-contact p *,
+.footer-contact div,
+.footer-contact div *,
+.footer-contact span {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    font-weight: 400 !important;
+    color: #ffffff !important;
+}
+
+/* Email */
+.footer-contact a,
+.footer-contact a:visited {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    font-weight: 400 !important;
+    color: #ffffff !important;
+}
+
+/* Hover */
+.footer-contact a:hover {
+    color: #d2a52e !important;
+}
+
+/* =====================================================
+   NAVARKA FOOTER - CONTACT US COLUMN
+===================================================== */
+
+/* Contact Us heading */
+.footer-grid > div:nth-child(3) h4 {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+    color: #ffffff !important;
+}
+
+/* Contact address */
+.footer-grid > div:nth-child(3) p {
+    display: block !important;
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    font-weight: 400 !important;
+    margin: 0 0 4px !important;
+    color: #d5e0e8 !important;
+}
+
+/* Phone */
+.footer-grid > div:nth-child(3) p:nth-of-type(2) {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    color: #d5e0e8 !important;
+}
+
+/* Email */
+.footer-grid > div:nth-child(3) a {
+    display: block !important;
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    font-weight: 400 !important;
+    color: #d5e0e8 !important;
+    text-decoration: none !important;
+}
+
+/* Email hover */
+.footer-grid > div:nth-child(3) a:hover {
+    color: #d6a82e !important;
 }

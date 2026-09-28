@@ -1,0 +1,533 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Partner With Us | NAVARKA</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <style>
+        /* ================================
+           PARTNER PAGE
+        ================================= */
+
+        .partner-page {
+            width: 100%;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* HEADER */
+
+        .partner-header {
+            height: 100px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: relative;
+            z-index: 20;
+        }
+
+        .partner-logo {
+            display: flex;
+            align-items: center;
+            width: 190px;
+        }
+
+        .partner-logo img {
+            display: block;
+            width: 180px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .partner-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .partner-nav a {
+            text-decoration: none;
+            color: #082746;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            transition: 0.3s ease;
+        }
+
+        .partner-nav a:hover {
+            color: #c99a22;
+        }
+
+        .partner-nav .partner-active {
+            color: #c99a22;
+        }
+
+        .partner-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #082746;
+            color: #ffffff !important;
+            padding: 16px 27px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            border-radius: 3px;
+            transition: 0.3s ease;
+        }
+
+        .partner-button:hover {
+            background: #c99a22;
+            color: #ffffff !important;
+        }
+
+
+        /* HERO */
+
+        .partner-hero {
+            position: relative;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(5, 29, 52, 0.72),
+                    rgba(5, 29, 52, 0.35),
+                    rgba(5, 29, 52, 0.58)
+                ),
+                url("/media/homepage/partner-hero.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .partner-hero-content {
+            width: min(1000px, 90%);
+            text-align: center;
+            color: #ffffff;
+            padding: 70px 20px;
+        }
+
+        .partner-eyebrow {
+            margin-bottom: 18px;
+            color: #d4a52c;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .partner-hero h1 {
+            margin: 0;
+            color: #ffffff;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(48px, 6vw, 82px);
+            font-weight: 400;
+            line-height: 1.05;
+        }
+
+        .partner-hero h1 span {
+            display: block;
+            color: #d4a52c;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .partner-hero-description {
+            max-width: 760px;
+            margin: 28px auto 35px;
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .partner-hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: #d4a52c;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 17px 32px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+        }
+
+        .partner-hero-cta:hover {
+            background: #ffffff;
+            color: #082746;
+        }
+
+
+        /* PARTNERSHIP TYPES */
+
+        .partner-section {
+            padding: 90px 7%;
+            background: #ffffff;
+        }
+
+        .partner-section-heading {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 55px;
+        }
+
+        .partner-section-heading small {
+            display: block;
+            margin-bottom: 14px;
+            color: #c99a22;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .partner-section-heading h2 {
+            margin: 0 0 18px;
+            color: #082746;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 4vw, 54px);
+            font-weight: 400;
+        }
+
+        .partner-section-heading p {
+            margin: 0;
+            color: #60758a;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .partner-cards {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .partner-card {
+            padding: 40px;
+            background: #f4f7fa;
+            border: 1px solid #e3e9ee;
+            transition: 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4a52c;
+        }
+
+        .partner-card-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .partner-card h3 {
+            margin: 0 0 14px;
+            color: #082746;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 29px;
+            font-weight: 400;
+        }
+
+        .partner-card p {
+            margin: 0;
+            color: #617487;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* CTA */
+
+        .partner-bottom {
+            padding: 90px 20px;
+            background: #082746;
+            text-align: center;
+        }
+
+        .partner-bottom h2 {
+            margin: 0 0 18px;
+            color: #ffffff;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 4vw, 55px);
+            font-weight: 400;
+        }
+
+        .partner-bottom p {
+            max-width: 720px;
+            margin: 0 auto 30px;
+            color: #dbe4ec;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .partner-header {
+                height: auto;
+                min-height: 90px;
+                padding: 15px 25px;
+            }
+
+            .partner-logo img {
+                width: 150px;
+            }
+
+            .partner-nav {
+                display: none;
+            }
+
+            .partner-button {
+                padding: 13px 18px;
+                font-size: 11px;
+            }
+
+            .partner-hero {
+                min-height: 600px;
+            }
+
+            .partner-hero h1 {
+                font-size: 48px;
+            }
+
+            .partner-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .partner-header {
+                justify-content: center;
+            }
+
+            .partner-button {
+                display: none;
+            }
+
+            .partner-hero {
+                min-height: 570px;
+            }
+
+            .partner-hero-content {
+                padding: 50px 10px;
+            }
+
+            .partner-hero h1 {
+                font-size: 42px;
+            }
+
+            .partner-hero-description {
+                font-size: 15px;
+            }
+
+            .partner-section {
+                padding: 65px 20px;
+            }
+
+            .partner-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="partner-page">
+
+    <!-- HEADER -->
+    <header class="partner-header">
+
+        <a href="/" class="partner-logo">
+            <img
+                src="/media/homepage/navarka-logo.png"
+                alt="NAVARKA - Soil to Sea"
+            >
+        </a>
+
+        <nav class="partner-nav">
+
+            <a href="/">HOME</a>
+
+            <a href="/#about">ABOUT</a>
+
+            <a href="/#realty">REALTY</a>
+
+            <a href="/#maritime">MARITIME</a>
+
+            <a href="/#projects">PROJECTS</a>
+
+            <a href="/#vision">VISION & MISSION</a>
+
+            <a href="/contact/">CONTACT</a>
+
+        </nav>
+
+        <a href="/partner/" class="partner-button">
+            PARTNER WITH US
+        </a>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="partner-hero">
+
+        <div class="partner-hero-content">
+
+          
+
+            <p class="partner-hero-description">
+                Together, we can transform ideas into places,
+                opportunities into ventures, and connections
+                into long-term possibilities.
+            </p>
+
+            <a href="/contact/" class="partner-hero-cta">
+                START A CONVERSATION
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PARTNERSHIP SECTION -->
+    <section class="partner-section">
+
+        <div class="partner-section-heading">
+
+            <small>OUR OPPORTUNITIES</small>
+
+            <h2>
+                Partnerships That Create Value
+            </h2>
+
+            <p>
+                NAVARKA brings together real estate development
+                and maritime expertise to create meaningful,
+                long-term business opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="partner-cards">
+
+            <div class="partner-card">
+
+                <div class="partner-card-icon">🏗️</div>
+
+                <h3>
+                    Realty Partnerships
+                </h3>
+
+                <p>
+                    Collaborate with NAVARKA on residential,
+                    commercial, hospitality, villa and land
+                    development opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="partner-card">
+
+                <div class="partner-card-icon">⚓</div>
+
+                <h3>
+                    Maritime Partnerships
+                </h3>
+
+                <p>
+                    Explore opportunities across shipbuilding,
+                    ship chartering, ship brokering and
+                    maritime consultancy.
+                </p>
+
+            </div>
+
+
+            <div class="partner-card">
+
+                <div class="partner-card-icon">🤝</div>
+
+                <h3>
+                    Joint Ventures
+                </h3>
+
+                <p>
+                    Build strategic ventures by combining
+                    resources, expertise and market opportunities
+                    for sustainable growth.
+                </p>
+
+            </div>
+
+
+            <div class="partner-card">
+
+                <div class="partner-card-icon">🌍</div>
+
+                <h3>
+                    Global Opportunities
+                </h3>
+
+                <p>
+                    Connect with NAVARKA for opportunities
+                    across markets and create relationships
+                    that extend beyond borders.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="partner-bottom">
+
+        <h2>
+            Let's Build Something Meaningful.
+        </h2>
+
+        <p>
+            Whether you are an investor, developer, maritime
+            professional, business organization or strategic
+            partner, we welcome conversations that create
+            long-term possibilities.
+        </p>
+
+        <a href="/contact/" class="partner-hero-cta">
+            CONTACT NAVARKA
+            <span>→</span>
+        </a>
+
+    </section>
+
+</div>
+
+</body>
+</html>

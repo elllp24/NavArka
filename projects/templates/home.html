@@ -11,6 +11,163 @@
           content="NAVARKA Realty & Shipyards LLP — Building places. Creating possibilities. Connecting horizons.">
 
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <style>
+        /* =====================================================
+           NAVARKA SERVICE ICON CARDS
+        ===================================================== */
+
+        .service-icon-grid {
+            gap: 12px;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 118px;
+            padding: 16px 8px;
+            background: #fff;
+            border: 1px solid #e5e9ed;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #082746;
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                border-color .25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: #d2a52e;
+            box-shadow: 0 10px 25px rgba(8, 39, 70, .10);
+        }
+
+        .service-card-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #faf7ee, #fff);
+            border: 1px solid #eee3c8;
+        }
+
+        .service-card-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: none;
+            stroke: #082746;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card-icon svg path:first-child {
+            stroke: #c89b2c;
+        }
+
+        .service-card span {
+            display: block;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-align: center;
+            color: #082746;
+        }
+
+
+        /* =====================================================
+           NAVARKA PROJECT CARD ICONS
+        ===================================================== */
+
+        .project-info {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto auto;
+            column-gap: 10px;
+            align-items: center;
+            padding-top: 12px;
+        }
+
+        .project-icon {
+            grid-row: 1 / 3;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #faf7ee;
+            border: 1px solid #eee3c8;
+        }
+
+        .project-icon svg {
+            width: 25px;
+            height: 25px;
+            fill: none;
+            stroke: #082746;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .project-icon svg path:first-child {
+            stroke: #c89b2c;
+        }
+
+        .project-info strong {
+            color: #082746;
+            font-size: 17px;
+            line-height: 1.15;
+        }
+
+        .project-info small {
+            color: #68798b;
+            font-size: 13px;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+
+        .project-card {
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 1050px) {
+            .service-card {
+                min-height: 112px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .service-card {
+                min-height: 110px;
+            }
+
+            .service-card-icon {
+                width: 58px;
+                height: 58px;
+            }
+
+            .service-card-icon svg {
+                width: 36px;
+                height: 36px;
+            }
+
+            .service-card span {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -73,9 +230,7 @@
         </nav>
 
         <!-- CTA -->
-        <a href="#contact" class="nav-cta">
-            PARTNER WITH US
-        </a>
+        <a href="/partner/" class="nav-cta">PARTNER WITH US</a>
 
     </div>
 
@@ -216,35 +371,80 @@
             </div>
 
 
-            <div class="card-grid">
+            <div class="card-grid service-icon-grid">
 
-                <a class="image-card" href="#projects">
-                    <div class="card-img img-residential"></div>
+                <a class="image-card service-card" href="#projects">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M10 30 32 12l22 18" />
+                            <path d="M16 28v25h32V28" />
+                            <path d="M26 53V38h12v15" />
+                            <path d="M22 33h4M38 33h4" />
+                        </svg>
+                    </div>
                     <span>Residential</span>
                 </a>
 
-                <a class="image-card" href="#projects">
-                    <div class="card-img img-commercial"></div>
+                <a class="image-card service-card" href="#projects">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M12 54V25h15v29" />
+                            <path d="M27 54V12h25v42" />
+                            <path d="M18 32h3M18 40h3M34 21h4M44 21h4M34 30h4M44 30h4M34 39h4M44 39h4" />
+                            <path d="M8 54h48" />
+                        </svg>
+                    </div>
                     <span>Commercial</span>
                 </a>
 
-                <a class="image-card" href="#projects">
-                    <div class="card-img img-villa"></div>
+                <a class="image-card service-card" href="#projects">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M8 31 28 15l20 16v22H8z" />
+                            <path d="M25 53V38h10v15" />
+                            <path d="M46 25c5-7 12-7 12-7-1 8-5 13-12 13" />
+                            <path d="M51 31c4-1 7 1 9 4" />
+                        </svg>
+                    </div>
                     <span>Villas</span>
                 </a>
 
-                <a class="image-card" href="#projects">
-                    <div class="card-img img-resort"></div>
+                <a class="image-card service-card" href="#projects">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M9 47c8-8 15-8 23 0s15 8 23 0" />
+                            <path d="M9 53c8-8 15-8 23 0s15 8 23 0" />
+                            <path d="M27 42c-4-13 1-25 10-31" />
+                            <path d="M37 14c7 0 13 4 16 10-7 1-12-2-16-10z" />
+                            <circle cx="48" cy="16" r="4" />
+                        </svg>
+                    </div>
                     <span>Resorts</span>
                 </a>
 
-                <a class="image-card" href="#projects">
-                    <div class="card-img img-hotel"></div>
+                <a class="image-card service-card" href="#projects">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M10 54h44" />
+                            <path d="M15 54V23h34v31" />
+                            <path d="M11 23 32 12l21 11" />
+                            <path d="M22 31h4M38 31h4M22 40h4M38 40h4" />
+                            <path d="M29 54V43h6v11" />
+                        </svg>
+                    </div>
                     <span>Hotels</span>
                 </a>
 
-                <a class="image-card" href="#projects">
-                    <div class="card-img img-land"></div>
+                <a class="image-card service-card" href="#projects">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M8 47c10-8 20-10 30-6 7 3 12 3 18-2" />
+                            <path d="M8 54c11-7 20-8 30-5 8 3 13 2 18-2" />
+                            <path d="M18 39 28 26l12 13" />
+                            <path d="M34 20h14v10H34z" />
+                            <circle cx="41" cy="14" r="4" />
+                        </svg>
+                    </div>
                     <span>Land Development</span>
                 </a>
 
@@ -277,25 +477,61 @@
             </div>
 
 
-            <div class="card-grid maritime-grid">
+            <div class="card-grid maritime-grid service-icon-grid">
 
-                <a class="image-card" href="#contact">
-                    <div class="card-img img-shipbuilding"></div>
+                <a class="image-card service-card" href="#contact">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M8 42h48l-8 10H17z" />
+                            <path d="M20 42V25h24v17" />
+                            <path d="M26 25v-8h12v8" />
+                            <path d="M30 17v-6" />
+                            <path d="M8 55c6-4 11-4 17 0 6-4 11-4 17 0 6-4 11-4 14 0" />
+                        </svg>
+                    </div>
                     <span>Shipbuilding</span>
                 </a>
 
-                <a class="image-card" href="#contact">
-                    <div class="card-img img-chartering"></div>
+                <a class="image-card service-card" href="#contact">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M8 42h48l-8 10H17z" />
+                            <path d="M20 42V25h24v17" />
+                            <path d="M27 25v-8h10v8" />
+                            <path d="M48 13v18" />
+                            <path d="M43 18h10" />
+                            <circle cx="49" cy="44" r="9" />
+                            <path d="m45 44 3 3 5-6" />
+                        </svg>
+                    </div>
                     <span>Ship Hire &amp; Chartering</span>
                 </a>
 
-                <a class="image-card" href="#contact">
-                    <div class="card-img img-brokerage"></div>
+                <a class="image-card service-card" href="#contact">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M8 40h21l6-10h21" />
+                            <path d="M12 40c4 8 12 8 16 0" />
+                            <path d="M38 30h14v10H38" />
+                            <path d="M17 48c5-5 10-5 15 0" />
+                            <path d="M34 48c5-5 10-5 15 0" />
+                            <path d="M27 54 38 43" />
+                            <path d="M34 43h8v8" />
+                        </svg>
+                    </div>
                     <span>Ship Brokering</span>
                 </a>
 
-                <a class="image-card" href="#contact">
-                    <div class="card-img img-consultancy"></div>
+                <a class="image-card service-card" href="#contact">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <circle cx="32" cy="32" r="20" />
+                            <circle cx="32" cy="32" r="5" />
+                            <path d="M32 7v12M32 45v12M7 32h12M45 32h12" />
+                            <path d="m14 14 9 9M41 41l9 9M50 14l-9 9M23 41l-9 9" />
+                            <path d="M32 20v24M20 32h24" />
+                        </svg>
+                    </div>
                     <span>Maritime Consultancy</span>
                 </a>
 
@@ -345,7 +581,14 @@
 
                 <div class="project-img project-residential"></div>
 
-                <div>
+                <div class="project-info">
+                    <span class="project-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M10 30 32 12l22 18" />
+                            <path d="M16 28v25h32V28" />
+                            <path d="M26 53V38h12v15" />
+                        </svg>
+                    </span>
                     <strong>Residential</strong>
                     <small>Bhubaneswar</small>
                 </div>
@@ -357,7 +600,14 @@
 
                 <div class="project-img project-villa"></div>
 
-                <div>
+                <div class="project-info">
+                    <span class="project-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M8 31 28 15l20 16v22H8z" />
+                            <path d="M25 53V38h10v15" />
+                            <path d="M46 25c5-7 12-7 12-7-1 8-5 13-12 13" />
+                        </svg>
+                    </span>
                     <strong>Villas</strong>
                     <small>Puri</small>
                 </div>
@@ -369,7 +619,15 @@
 
                 <div class="project-img project-resort"></div>
 
-                <div>
+                <div class="project-info">
+                    <span class="project-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M9 47c8-8 15-8 23 0s15 8 23 0" />
+                            <path d="M9 53c8-8 15-8 23 0s15 8 23 0" />
+                            <path d="M27 42c-4-13 1-25 10-31" />
+                            <path d="M37 14c7 0 13 4 16 10-7 1-12-2-16-10z" />
+                        </svg>
+                    </span>
                     <strong>Resort</strong>
                     <small>Koraput</small>
                 </div>
@@ -381,7 +639,16 @@
 
                 <div class="project-img project-hotel"></div>
 
-                <div>
+                <div class="project-info">
+                    <span class="project-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M10 54h44" />
+                            <path d="M15 54V23h34v31" />
+                            <path d="M11 23 32 12l21 11" />
+                            <path d="M22 31h4M38 31h4M22 40h4M38 40h4" />
+                            <path d="M29 54V43h6v11" />
+                        </svg>
+                    </span>
                     <strong>Hotel</strong>
                     <small>Goa</small>
                 </div>
@@ -393,7 +660,15 @@
 
                 <div class="project-img project-shipyard"></div>
 
-                <div>
+                <div class="project-info">
+                    <span class="project-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <path d="M8 42h48l-8 10H17z" />
+                            <path d="M20 42V25h24v17" />
+                            <path d="M26 25v-8h12v8" />
+                            <path d="M30 17v-6" />
+                        </svg>
+                    </span>
                     <strong>Shipyard</strong>
                     <small>Paradip</small>
                 </div>

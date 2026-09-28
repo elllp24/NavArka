@@ -97,3 +97,9 @@ def contact(request):
         success = True
 
     return render(request, 'contact.html', {'success': success})
+
+def partner(request):
+    return render(request, "partner.html")
+
+def partner(request):
+    return render(request, "partner.html")

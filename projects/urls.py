@@ -19,4 +19,6 @@ urlpatterns = [
     # ✅ Extra features
     path('dashboard/', views.dashboard, name='dashboard'),
     path('delete/<int:id>/', views.delete_project),
+    path("partner/", views.partner, name="partner"),
+    
 ]

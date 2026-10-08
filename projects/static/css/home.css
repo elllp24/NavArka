@@ -1786,3 +1786,13 @@ p{
 .footer-grid > div:nth-child(3) a:hover {
     color: #d6a82e !important;
 }
+
+.whatsapp-float i {
+    font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float i {
+        font-size: 27px;
+    }
+}

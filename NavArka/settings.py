@@ -152,3 +152,17 @@ MEDIA_ROOT = BASE_DIR / "media"
 SESSION_COOKIE_AGE = 900   # 1 minute for testing
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = True
+
+# ==============================
+# EMAIL CONFIGURATION
+# ==============================
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+EMAIL_HOST = "smtp.hostinger.com"
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+
+EMAIL_HOST_USER = "info@navarka.in"
+EMAIL_HOST_PASSWORD = "Navarka@123"
+
+DEFAULT_FROM_EMAIL = "info@navarka.in"

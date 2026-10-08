@@ -12,7 +12,12 @@
                 <p><strong>Company:</strong> NavArka Realty and Shipyards LLP</p>
                 <p><strong>Email:</strong> info@navarka.in</p>
                 <p><strong>Phone:</strong> +91-9437788017</p>
-                <p><strong>Address:</strong> Bhubaneswar, Odisha</p>
+                <p>
+    <strong>Address:</strong><br>
+    Plot-11/1890, Gopal Krishna Nagar,<br>
+    Pokhariput, Bhubaneswar,<br>
+    Odisha, India - 751020
+</p>
             </div>
         </div>
 
@@ -29,17 +34,51 @@
                 {% endif %}
 
                 <form method="post">
-                    {% csrf_token %}
+               <form method="post" action="{% url 'contact' %}">
+    {% csrf_token %}
 
-                    <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+    {% if success %}
+        <div class="alert alert-success mb-3">
+            Thank you! Your message has been sent successfully.
+        </div>
+    {% endif %}
 
-                    <input type="email" name="email" class="form-control mb-3" placeholder="Email Address" required>
+    <input
+        type="text"
+        name="name"
+        class="form-control mb-3"
+        placeholder="Your Name"
+        required
+    >
 
-                    <input type="text" name="phone" class="form-control mb-3" placeholder="Phone Number" required>
+    <input
+        type="email"
+        name="email"
+        class="form-control mb-3"
+        placeholder="Email Address"
+        required
+    >
 
-                    <textarea name="message" class="form-control mb-3" rows="5" placeholder="Your Message"></textarea>
+    <input
+        type="text"
+        name="phone"
+        class="form-control mb-3"
+        placeholder="Phone Number"
+        required
+    >
 
-                    <button class="btn btn-dark w-100">Send Message</button>
+    <textarea
+        name="message"
+        class="form-control mb-3"
+        rows="5"
+        placeholder="Your Message"
+        required
+    ></textarea>
+
+    <button type="submit" class="btn btn-dark w-100">
+        Send Message
+    </button>
+</form>
                 </form>
 
             </div>

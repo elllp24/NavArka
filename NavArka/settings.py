@@ -166,3 +166,14 @@ EMAIL_HOST_USER = "info@navarka.in"
 EMAIL_HOST_PASSWORD = "Navarka@123"
 
 DEFAULT_FROM_EMAIL = "info@navarka.in"
+
+ALLOWED_HOSTS = [
+    "navarka.in",
+    "www.navarka.in",
+    "88.222.242.243",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://navarka.in",
+    "https://www.navarka.in",
+]

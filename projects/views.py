@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail
 
 from .models import Project, Slider, Contact
+from django.http import JsonResponse
 
 
 # =========================================================
@@ -169,8 +170,13 @@ https://navarka.in/contact/
         # REDIRECT AFTER SUCCESSFUL SUBMISSION
         # ==========================================
 
-        return redirect('/contact/?sent=1')
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+        return JsonResponse({
+        "success": True,
+        "message": "Thank you! Your message has been sent successfully."
+    })
 
+    return redirect('/contact/?sent=1')
     # ==========================================
     # NORMAL PAGE LOAD
     # ==========================================

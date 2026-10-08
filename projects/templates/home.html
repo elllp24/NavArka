@@ -947,10 +947,11 @@
         </div>
 
 
-        <a href="mailto:info@navaraka.in" class="btn btn-gold">
-            Contact Us
-            <span>→</span>
-        </a>
+  
+
+        <button type="button" class="btn btn-gold" onclick="openNavarkaContact()">
+    Contact Us <span>→</span>
+</button>
 
     </div>
 
@@ -979,6 +980,9 @@
         SOIL TO SEA
         <span></span>
     </div>
+</div>
+<div class="footer-company-name">
+    NAVARKA REALTY &amp; SHIPYARDS LLP
 </div>
 
             </a>
@@ -1142,5 +1146,512 @@
         <path d="M20.52 3.48A11.82 11.82 0 0012.05 0C5.55 0 .26 5.29.26 11.79c0 2.08.54 4.11 1.57 5.9L.17 24l6.46-1.69a11.78 11.78 0 005.42 1.31h.01c6.5 0 11.79-5.29 11.79-11.79 0-3.15-1.22-6.12-3.33-8.35zM12.06 21.6h-.01a9.8 9.8 0 01-5-1.36l-.36-.21-3.83 1 1.02-3.73-.23-.38a9.79 9.79 0 01-1.5-5.13c0-5.4 4.4-9.8 9.81-9.8a9.75 9.75 0 016.94 2.88 9.75 9.75 0 012.87 6.95c0 5.4-4.4 9.8-9.81 9.8zm5.38-7.34c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.07-.29-.15-1.21-.45-2.31-1.43-.85-.76-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49h-.56c-.19 0-.49.07-.75.36-.26.29-1 1-1 2.43s1.02 2.82 1.16 3.02c.14.19 2 3.06 4.84 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.34z"/>
     </svg>
 </a>
+<!-- NAVARKA CONTACT POPUP -->
+<div id="navarkaContactModal" class="navarka-modal">
+
+    <div class="navarka-modal-overlay" onclick="closeNavarkaContact()"></div>
+
+    <div class="navarka-modal-box">
+
+        <button type="button"
+                class="navarka-modal-close"
+                onclick="closeNavarkaContact()"
+                aria-label="Close">
+            ×
+        </button>
+
+        <div class="navarka-modal-header">
+            <div class="navarka-modal-label">LET'S CONNECT</div>
+
+            <h2>Have a project in mind?</h2>
+
+            <p>
+                Tell us about your requirement and our team will get back to you.
+            </p>
+        </div>
+
+        <form method="post"
+      action="{% url 'contact' %}"
+      class="navarka-contact-form"
+      onsubmit="submitNavarkaContact(event, this)">
+
+            {% csrf_token %}
+
+            <div class="navarka-form-group">
+                <label>Your Name *</label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    required>
+            </div>
+
+            <div class="navarka-form-row">
+
+                <div class="navarka-form-group">
+                    <label>Email Address *</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="navarka-form-group">
+                    <label>Contact Number *</label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required>
+                </div>
+
+            </div>
+
+
+            <div class="navarka-form-group">
+                <label>Project / Requirement *</label>
+                <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Tell us about your project or requirement"
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="navarka-send-btn">
+                Send Message <span>→</span>
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+
+<style>
+    .footer-company-name {
+    margin-top: 14px !important;
+    color: #d4a52c !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+}
+/* ================================
+   NAVARKA CONTACT BUTTON
+================================ */
+
+.navarka-contact-btn {
+    border: none;
+    background: #f3c44f;
+    color: #092944;
+    padding: 15px 28px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.navarka-contact-btn span {
+    margin-left: 14px;
+    font-size: 18px;
+}
+
+.navarka-contact-btn:hover {
+    background: #092944;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+/* ================================
+   MODAL
+================================ */
+
+.navarka-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.navarka-modal.active {
+    display: flex;
+}
+
+.navarka-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 24, 42, 0.78);
+    backdrop-filter: blur(5px);
+}
+
+
+/* ================================
+   MODAL BOX
+================================ */
+
+.navarka-modal-box {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    padding: 45px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    border-top: 5px solid #d4a62a;
+}
+
+
+/* ================================
+   CLOSE BUTTON
+================================ */
+
+.navarka-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    background: transparent;
+
+    color: #092944;
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.navarka-modal-close:hover {
+    color: #c28d18;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.navarka-modal-label {
+    color: #b8861b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.navarka-modal-header h2 {
+    margin: 0 0 10px;
+    color: #102d46;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    line-height: 1.15;
+}
+
+.navarka-modal-header p {
+    margin: 0 0 28px;
+    color: #65788a;
+    font-size: 15px;
+}
+
+
+/* ================================
+   FORM
+================================ */
+
+.navarka-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.navarka-form-group {
+    margin-bottom: 18px;
+}
+
+.navarka-form-group label {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #18354d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.navarka-form-group input,
+.navarka-form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    border: 1px solid #d8dee4;
+    background: #fafbfc;
+
+    padding: 13px 14px;
+
+    color: #18354d;
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.navarka-form-group textarea {
+    resize: vertical;
+}
+
+.navarka-form-group input:focus,
+.navarka-form-group textarea:focus {
+    border-color: #c79b2d;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(199, 155, 45, 0.10);
+}
+
+
+/* ================================
+   SEND BUTTON
+================================ */
+
+.navarka-send-btn {
+    width: 100%;
+    border: none;
+
+    background: #092944;
+    color: #ffffff;
+
+    padding: 16px 24px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.navarka-send-btn span {
+    margin-left: 12px;
+    font-size: 18px;
+}
+
+.navarka-send-btn:hover {
+    background: #c79b2d;
+    color: #092944;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 650px) {
+
+    .navarka-modal {
+        padding: 15px;
+    }
+
+    .navarka-modal-box {
+        padding: 32px 22px;
+        max-height: 92vh;
+    }
+
+    .navarka-modal-header h2 {
+        font-size: 29px;
+    }
+
+    .navarka-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+}
+
+
+/* Prevent page scrolling while modal is open */
+body.navarka-modal-open {
+    overflow: hidden;
+}
+</style>
+
+<script>
+
+function openNavarkaContact() {
+    const modal = document.getElementById("navarkaContactModal");
+
+    modal.classList.add("active");
+    document.body.classList.add("navarka-modal-open");
+}
+
+
+function closeNavarkaContact() {
+    const modal = document.getElementById("navarkaContactModal");
+
+    modal.classList.remove("active");
+    document.body.classList.remove("navarka-modal-open");
+}
+
+
+/* ==========================================
+   SEND POPUP FORM
+========================================== */
+
+async function submitNavarkaContact(event, form) {
+
+    // VERY IMPORTANT:
+    // Stop normal browser form submission.
+    event.preventDefault();
+    event.stopPropagation();
+
+    const submitButton = form.querySelector(".navarka-send-btn");
+
+    const originalButtonText = submitButton.innerHTML;
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = "Sending...";
+
+    try {
+
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "Accept": "application/json"
+            },
+            redirect: "manual"
+        });
+
+        /*
+         * If Django tries to redirect, do NOT allow the
+         * browser to leave the homepage.
+         */
+        if (response.type === "opaqueredirect" ||
+            response.status === 301 ||
+            response.status === 302 ||
+            response.status === 303) {
+
+            showNavarkaSuccess(form);
+            return false;
+        }
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            showNavarkaSuccess(form);
+
+        } else {
+
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
+
+            alert("Unable to send your message. Please try again.");
+        }
+
+    } catch (error) {
+
+        console.error("NavArka contact form error:", error);
+
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+
+        alert("Something went wrong. Please try again.");
+    }
+
+    return false;
+}
+
+
+/* ==========================================
+   SUCCESS MESSAGE
+========================================== */
+
+function showNavarkaSuccess(form) {
+
+    form.innerHTML = `
+        <div style="
+            text-align:center;
+            padding:40px 20px;
+        ">
+
+            <div style="
+                width:64px;
+                height:64px;
+                margin:0 auto 20px;
+                border-radius:50%;
+                background:#d4a52c;
+                color:#082746;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:30px;
+                font-weight:bold;
+            ">
+                ✓
+            </div>
+
+            <h3 style="
+                color:#082746;
+                font-family:Georgia, 'Times New Roman', serif;
+                font-size:30px;
+                margin-bottom:12px;
+            ">
+                Thank You!
+            </h3>
+
+            <p style="
+                color:#60758a;
+                font-size:16px;
+                line-height:1.7;
+                margin-bottom:28px;
+            ">
+                Your message has been sent successfully.
+                <br>
+                Our team will get back to you shortly.
+            </p>
+
+            <button
+                type="button"
+                onclick="closeNavarkaContact()"
+                style="
+                    border:none;
+                    background:#082746;
+                    color:#ffffff;
+                    padding:14px 28px;
+                    font-size:13px;
+                    font-weight:700;
+                    cursor:pointer;
+                ">
+                CLOSE
+            </button>
+
+        </div>
+    `;
+}
+
+
+/* ==========================================
+   CLOSE WITH ESC
+========================================== */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeNavarkaContact();
+    }
+
+});
+
+</script>
+
 </body>
+
 </html>
+

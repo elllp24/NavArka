@@ -163,11 +163,14 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
 EMAIL_HOST_USER = "info@navarka.in"
-EMAIL_HOST_PASSWORD = "Navarka@123"
+
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
 
 DEFAULT_FROM_EMAIL = "info@navarka.in"
 
 ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
     "navarka.in",
     "www.navarka.in",
     "88.222.242.243",

@@ -1796,3 +1796,26 @@ p{
         font-size: 27px;
     }
 }
+
+/* ==========================================
+   FOOTER COMPANY NAME
+========================================== */
+
+.footer-company-name {
+    margin-top: 14px;
+    color: #d4a52c;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .footer-company-name {
+        font-size: 11px;
+        letter-spacing: 0.8px;
+        white-space: normal;
+    }
+}
